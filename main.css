@@ -1,0 +1,140 @@
+
+/* Main area (graph) */
+
+.main-area {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    text-align: center;
+
+    border: 1px solid black;
+}
+
+.main-area #graph{
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Menu side panel */
+
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0.6) 0%, rgba(17,17,17,0.35) 67%, rgba(255,255,255,0.01) 100%);
+    overflow-x: hidden; 
+    padding-top: 140px;
+    transition: 0.5s;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.side-menu-change {
+    width: 40%;
+    padding-top: 120px;
+    padding-left: 35px;
+}
+
+
+/* Floatin label & inputs */
+
+input {
+    font-size: 16px;
+    padding: 20px 0px;
+    height: 56px;
+    border: none;
+    border-bottom: solid 1px rgba(0, 0, 0, .1);
+    background:transparent;
+    min-width: 280px;
+    box-sizing: border-box;
+    transition: all 0.3s linear;
+    color: #000;
+    font-weight: 400;
+    -webkit-appearance: none;
+    z-index: 5;
+}
+input:focus {
+    border-bottom: solid 1px #000000;
+    outline: 0;
+    box-shadow: 0 2px 6px -8px rgba(182, 157, 230, .45);
+}
+::placeholder{
+    color: #000;
+}
+.floating-label {
+    position: relative;
+    margin-bottom: 10px;
+}
+.floating-label label {
+    position: absolute;
+    top: calc(45% - 7px);
+    left: 0;
+    opacity: 0;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+.floating-label input:not(:placeholder-shown) {
+    padding: 28px 0px 12px 0px;
+}
+.floating-label input:not(:placeholder-shown) + label {
+    transform: translateY(-10px);
+    opacity: 0.9;
+}
+
+/* Menu btn */
+
+.btn-container {
+    display: inline-block;
+    cursor: pointer;
+    z-index: 12;
+    position: absolute;
+    top: 50px;
+    left: 30px;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.menu-view-change .bar1 {
+    background-color: rgb(218, 215, 215);
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    -ms-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+
+    -webkit-transform: background-color 0.5s linear;
+    -ms-transform: background-color 0.5s linear;
+    transform: background-color 0.5s linear;
+}
+
+.menu-view-change .bar2 {
+    opacity: 0;
+}
+
+.menu-view-change .bar3 {
+    background-color: rgb(218, 215, 215);
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+
+    -webkit-transform: background-color 0.5s linear;
+    -ms-transform: background-color 0.5s linear;
+    transform: background-color 0.5s linear;
+}
