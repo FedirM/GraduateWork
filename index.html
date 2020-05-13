@@ -12,7 +12,7 @@
     <script src="app.js"></script>
 </head>
 
-<body onload="checkAndBuild()">
+<body onload="init()">
     <div>
         <div class="btn-container" onclick="toggleButton(this)">
             <div class="bar1"></div>
@@ -21,32 +21,34 @@
         </div>
         <div class="side-menu">
             <div class="floating-label">
-                <input placeholder="Height" type="text" name="height" id="height" autocomplete="off">
-                <label for="height">Height (h):</label>
+                <input placeholder="Длинна (м)" type="text" id="length" autocomplete="off">
+                <label for="length">Длинна (м):</label>
             </div>
             <div class="floating-label">
-                <input placeholder="Width" type="text" name="width" id="width" autocomplete="off">
-                <label for="email">Width (h):</label>
+                <input placeholder="Ширина (м)" type="text" id="width" autocomplete="off">
+                <label for="width">Ширина (м):</label>
             </div>
             <div class="floating-label">
-                <input placeholder="Height" type="text" name="height" id="height" autocomplete="off">
-                <label for="email">Height (h):</label>
+                <input placeholder="Высота (м)" type="text" id="height" autocomplete="off">
+                <label for="height">Высота (м):</label>
             </div>
             <div class="floating-label">
-                <input placeholder="Width" type="text" name="width" id="width" autocomplete="off">
-                <label for="email">Width (h):</label>
+                <input placeholder="модуль Юнга (Па)" type="text" id="ung" autocomplete="off">
+                <label for="ung">модуль Юнга (Па):</label>
             </div>
             <div class="floating-label">
-                <input placeholder="Height" type="text" name="height" id="height" autocomplete="off">
-                <label for="email">Height (h):</label>
+                <input placeholder="коеф. Пуассона" type="text" id="mu" autocomplete="off">
+                <label for="mu">коеф. Пуассона:</label>
             </div>
             <div class="floating-label">
-                <input placeholder="Width" type="text" name="width" id="width" autocomplete="off">
-                <label for="email">Width (h):</label>
+                <input placeholder="Максимальная нагрузка (Н)" type="text" id="q0" autocomplete="off">
+                <label for="q0">Максимальная нагрузка (Н):</label>
             </div>
+
         </div>
         <div class="main-area">
-            <h1>HERE WILL BE A GRAPH</h1>
+            <h1>Шарнирно опёртая пластинка</h1>
+            <span>(под гидростатическим давлением)</span>
             <div id="graph"></div>
         </div>
     </div>

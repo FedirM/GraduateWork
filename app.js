@@ -2,9 +2,12 @@ let plate_w = []; // Two dimensional array (w)
 
 const EPS = 1e-8;
 
-let q0 = 1; // Hydrostatic max pressure 
+let q0 = 1; // Hydrostatic max pressure
 let a = 4; // length
 let b = 4; // width
+let h = 0.1;
+let E = 21000;
+let mu = 0.3;
 let D = 1.923; //2.4038461538461538461538461538462e-4;
 
 function print(value, label = '') {
@@ -47,12 +50,12 @@ function calc() {
               x = Math.round(x * 10) / 10;
               y = Math.round(y * 10) / 10;
               let value = sagging({x, y});
-              value = ( math.abs(value) <= EPS ) ? 0.0 : -value;
+              value = ( math.abs(value) <= EPS ) ? 0 : -value;
               data.add({
                 x: x,
                 y: y,
                 z: value,
-                style: -1 / value
+                style: value
               });
             }
         }
@@ -83,4 +86,14 @@ function checkAndBuild() {
     calc().then( data => {
         let gr = new vis.Graph3d(document.getElementById('graph'), data, options);
     });
+}
+
+function init() {
+    document.getElementById('length').value = a.toString();
+    document.getElementById('width').value = b.toString();
+    document.getElementById('height').value = h.toString();
+    document.getElementById('ung').value = E.toString();
+    document.getElementById('mu').value = mu.toString();
+    document.getElementById('q0').value = q0.toString();
+    checkAndBuild();
 }
