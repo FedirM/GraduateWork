@@ -129,7 +129,10 @@ function init() {
 
 function start() {
     if ( a > 0 && b > 0 && h > 0 && E > 0 && mu > 0 && D > 0 ) {
-        if ( 1/80 <= h/a && h/a <= 1/5 ) {
+        let r = Math.round(h/a * 10000) / 10000;
+        console.log( `1/80 <= r : ${1/80 <= r}`);
+        console.log( `r <= 1/5 : ${r <= 1/5}`);
+        if ( (1/80 <= r) && (r <= 1/5) ) {
             toggleButton( document.getElementsByClassName('btn-container')[0]);
             init();
         } else {
