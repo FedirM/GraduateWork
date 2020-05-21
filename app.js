@@ -17,24 +17,24 @@ function calc_D() {
 }
 
 function onChange_q0( value ) {
-    q0 = parseFloat( value );
+    q0 = parseFloat( value.replace(',', '.') );
 }
 function onChange_a( value ) {
-    a = parseFloat( value );
+    a = parseFloat( value.replace(',', '.') );
 }
 function onChange_b( value ) {
-    b = parseFloat( value );
+    b = parseFloat( value.replace(',', '.') );
 }
 function onChange_h( value ) {
-    h = parseFloat( value );
+    h = parseFloat( value.replace(',', '.') );
     calc_D();
 }
 function onChange_E( value ) {
-    E = parseFloat( value );
+    E = parseFloat( value.replace(',', '.') );
     calc_D();
 }
 function onChange_mu( value ) {
-    mu = parseFloat( value );
+    mu = parseFloat( value.replace(',', '.') );
     calc_D();
 }
 
