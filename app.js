@@ -2,13 +2,41 @@ let plate_w = []; // Two dimensional array (w)
 
 const EPS = 1e-8;
 
-let q0 = 1; // Hydrostatic max pressure
-let a = 4; // length
-let b = 4; // width
-let h = 0.1;
-let E = 21000;
-let mu = 0.3;
-let D = 1.923; //2.4038461538461538461538461538462e-4;
+let q0 = 0; // 1; // Hydrostatic max pressure
+let a = 0; // 4; // length
+let b = 0; // 4; // width
+let h = 0; // 0.1;
+let E = 0; // 21000;
+let mu = 0; // 0.3;
+let D = 0; // 1.923; //2.4038461538461538461538461538462e-4;
+
+
+function calc_D() {
+    D = ( E * math.pow(h, 3) ) / ( 12 * (1 - math.pow(mu, 2)));
+    document.getElementById('D').value = D.toString();
+}
+
+function onChange_q0( value ) {
+    q0 = parseFloat( value );
+}
+function onChange_a( value ) {
+    a = parseFloat( value );
+}
+function onChange_b( value ) {
+    b = parseFloat( value );
+}
+function onChange_h( value ) {
+    h = parseFloat( value );
+    calc_D();
+}
+function onChange_E( value ) {
+    E = parseFloat( value );
+    calc_D();
+}
+function onChange_mu( value ) {
+    mu = parseFloat( value );
+    calc_D();
+}
 
 function print(value, label = '') {
     console.log(label, math.format(value, 14));
@@ -46,10 +74,11 @@ function calc() {
 
     return new Promise((resolve, reject) => {
         for (var x = 0; x <= a; x+=0.1) {
+            if( x === a/2 ) x += 0.1;
             for (var y = -b/2; y <= b/2; y+=0.1) {
               x = Math.round(x * 10) / 10;
               y = Math.round(y * 10) / 10;
-              let value = sagging({x, y});
+              let value = sagging({x, y:0.0});
               value = ( math.abs(value) <= EPS ) ? 0 : -value;
               data.add({
                 x: x,
@@ -96,4 +125,13 @@ function init() {
     document.getElementById('mu').value = mu.toString();
     document.getElementById('q0').value = q0.toString();
     checkAndBuild();
+}
+
+function start() {
+    if ( a > 0 && b > 0 && h > 0 && E > 0 && mu > 0 && D > 0 ) {
+        toggleButton( document.getElementsByClassName('btn-container')[0]);
+        init();
+    } else {
+        alert( 'Вы допустили ошибку при вводе параметров' );
+    }
 }
