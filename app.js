@@ -129,8 +129,12 @@ function init() {
 
 function start() {
     if ( a > 0 && b > 0 && h > 0 && E > 0 && mu > 0 && D > 0 ) {
-        toggleButton( document.getElementsByClassName('btn-container')[0]);
-        init();
+        if ( 1/80 <= h/a <= 1/5 ) {
+            toggleButton( document.getElementsByClassName('btn-container')[0]);
+            init();
+        } else {
+            alert( 'Пластнина не является тонкой! (1/80 <= h/a <= 1/5) ' );
+        }
     } else {
         alert( 'Вы допустили ошибку при вводе параметров' );
     }
