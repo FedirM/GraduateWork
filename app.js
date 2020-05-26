@@ -1,4 +1,4 @@
-let plate_w = []; // Two dimensional array (w)
+// let plate_w = []; // Two dimensional array (w)
 
 const EPS = 1e-8;
 
@@ -38,9 +38,9 @@ function onChange_mu( value ) {
     calc_D();
 }
 
-function print(value, label = '') {
-    console.log(label, math.format(value, 14));
-}
+// function print(value, label = '') {
+//     console.log(label, math.format(value, 14));
+// }
 
 function preshure(x) {
     return (q0 * x) / a;
@@ -130,8 +130,6 @@ function init() {
 function start() {
     if ( a > 0 && b > 0 && h > 0 && E > 0 && mu > 0 && D > 0 ) {
         let r = Math.round(h/a * 10000) / 10000;
-        console.log( `1/80 <= r : ${1/80 <= r}`);
-        console.log( `r <= 1/5 : ${r <= 1/5}`);
         if ( (1/80 <= r) && (r <= 1/5) ) {
             toggleButton( document.getElementsByClassName('btn-container')[0]);
             init();
