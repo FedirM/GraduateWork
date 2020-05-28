@@ -1,5 +1,3 @@
-// let plate_w = []; // Two dimensional array (w)
-
 const EPS = 1e-8;
 
 let q0 = 5; // Hydrostatic max pressure
@@ -37,11 +35,6 @@ function onChange_mu( value ) {
     mu = parseFloat( value.replace(',', '.') );
     calc_D();
 }
-
-// function print(value, label = '') {
-//     console.log(label, math.format(value, 14));
-// }
-
 function preshure(x) {
     return (q0 * x) / a;
 }
