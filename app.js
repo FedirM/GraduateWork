@@ -2,12 +2,12 @@
 
 const EPS = 1e-8;
 
-let q0 = 0; // 1; // Hydrostatic max pressure
-let a = 0; // 4; // length
-let b = 0; // 4; // width
-let h = 0; // 0.1;
-let E = 0; // 21000;
-let mu = 0; // 0.3;
+let q0 = 5; // Hydrostatic max pressure
+let a = 2; // length
+let b = 1; // width
+let h = 0.31;
+let E = 21000;
+let mu = 0.3;
 let D = 0; // 1.923; //2.4038461538461538461538461538462e-4;
 
 
@@ -124,6 +124,7 @@ function init() {
     document.getElementById('ung').value = E.toString();
     document.getElementById('mu').value = mu.toString();
     document.getElementById('q0').value = q0.toString();
+    calc_D();
     checkAndBuild();
 }
 
@@ -134,9 +135,9 @@ function start() {
             toggleButton( document.getElementsByClassName('btn-container')[0]);
             init();
         } else {
-            alert( 'Пластнина не является тонкой! (1/80 <= h/a <= 1/5) ' );
+            alert( 'Пластника не є тонкою! (1/80 <= h/a <= 1/5) ' );
         }
     } else {
-        alert( 'Вы допустили ошибку при вводе параметров' );
+        alert( 'Ви допустили помилку при введені вхідних параметрів!' );
     }
 }

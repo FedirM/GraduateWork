@@ -14,7 +14,7 @@
     <script src="app.js"></script>
 </head>
 
-<body onload=" toggleButton( document.getElementsByClassName('btn-container')[0]) ">
+<body onload=" toggleButton( document.getElementsByClassName('btn-container')[0]); init() ">
     <div>
         <div class="btn-container" onclick="toggleButton(this)">
             <div class="bar1"></div>
@@ -23,16 +23,16 @@
         </div>
         <div class="side-menu">
             <div class="floating-label">
-                <input placeholder="Длинна (м)" type="text" id="length" autocomplete="off" onchange="onChange_a( this.value )">
-                <label for="length">Длинна (м):</label>
+                <input placeholder="Довжина (м)" type="text" id="length" autocomplete="off" onchange="onChange_a( this.value )">
+                <label for="length">Довжина (м):</label>
             </div>
             <div class="floating-label">
                 <input placeholder="Ширина (м)" type="text" id="width" autocomplete="off" onchange="onChange_b( this.value )">
                 <label for="width">Ширина (м):</label>
             </div>
             <div class="floating-label">
-                <input placeholder="Толщина (м)" type="text" id="height" autocomplete="off" onchange="onChange_h( this.value )">
-                <label for="height">Толщина (м):</label>
+                <input placeholder="Товщина (м)" type="text" id="height" autocomplete="off" onchange="onChange_h( this.value )">
+                <label for="height">Товщина (м):</label>
             </div>
             <div class="floating-label">
                 <input placeholder="модуль Юнга (Па)" type="text" id="ung" autocomplete="off" onchange="onChange_E( this.value )">
@@ -43,22 +43,22 @@
                 <label for="mu">коеф. Пуассона:</label>
             </div>
             <div class="floating-label">
-                <input placeholder="Цилинд. жесткость (Н*м)" type="text" id="D" autocomplete="off" disabled>
-                <label for="D">Цилинд. жесткость (Н*м):</label>
+                <input placeholder="Цилінд. жорсткість (Н*м)" type="text" id="D" autocomplete="off" disabled>
+                <label for="D">Цилінд. жорсткість (Н*м):</label>
             </div>
             <div class="floating-label">
-                <input placeholder="Максимальная нагрузка (Н)" type="text" id="q0" autocomplete="off" onchange="onChange_q0( this.value )">
-                <label for="q0">Максимальная нагрузка (Н):</label>
+                <input placeholder="Максимальне навантаження (Н)" type="text" id="q0" autocomplete="off" onchange="onChange_q0( this.value )">
+                <label for="q0">Максимальне навантаження (Н):</label>
             </div>
 
             <div class="calc-btn-area">
-                <button class="button" onclick="start()" style="outline: 0;">Расчитать</button>
+                <button class="button" onclick="start()" style="outline: 0;">Обчислити</button>
             </div>
 
         </div>
         <div class="main-area">
-            <h1>Пластинка с защемлёнными противоположными краями</h1>
-            <span>(под гидростатическим давлением вдоль оси х)</span>
+            <h1>Пластинка з защемленими протилежними кінцями</h1>
+            <span>(під гідростатичним навантаженням вздовж осі х)</span>
             <div id="graph"></div>
         </div>
     </div>
