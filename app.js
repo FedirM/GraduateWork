@@ -1,18 +1,10 @@
-const EPS = 1e-8;
+const EPS = 1e-5;
 
 let q0 = 5; // Hydrostatic max pressure
-let a = 2; // length
+let a = 1.2; // length
 let b = 1; // width
-let h = 0.31;
-let E = 21000;
-let mu = 0.3;
-let D = 0; // 1.923; //2.4038461538461538461538461538462e-4;
+let D = 1.923; //2.4038461538461538461538461538462e-4;
 
-
-function calc_D() {
-    D = ( E * math.pow(h, 3) ) / ( 12 * (1 - math.pow(mu, 2)));
-    document.getElementById('D').value = D.toString();
-}
 
 function onChange_q0( value ) {
     q0 = parseFloat( value.replace(',', '.') );
@@ -20,21 +12,10 @@ function onChange_q0( value ) {
 function onChange_a( value ) {
     a = parseFloat( value.replace(',', '.') );
 }
-function onChange_b( value ) {
-    b = parseFloat( value.replace(',', '.') );
+function onChange_D( value ) {
+    D = parseFloat( value.replace(',', '.') );
 }
-function onChange_h( value ) {
-    h = parseFloat( value.replace(',', '.') );
-    calc_D();
-}
-function onChange_E( value ) {
-    E = parseFloat( value.replace(',', '.') );
-    calc_D();
-}
-function onChange_mu( value ) {
-    mu = parseFloat( value.replace(',', '.') );
-    calc_D();
-}
+
 function preshure(x) {
     return (q0 * x) / a;
 }
@@ -112,24 +93,15 @@ function checkAndBuild() {
 
 function init() {
     document.getElementById('length').value = a.toString();
-    document.getElementById('width').value = b.toString();
-    document.getElementById('height').value = h.toString();
-    document.getElementById('ung').value = E.toString();
-    document.getElementById('mu').value = mu.toString();
+    document.getElementById('D').value = D.toString();
     document.getElementById('q0').value = q0.toString();
-    calc_D();
     checkAndBuild();
 }
 
 function start() {
-    if ( a > 0 && b > 0 && h > 0 && E > 0 && mu > 0 && D > 0 ) {
-        let r = Math.round(h/a * 10000) / 10000;
-        if ( (1/80 <= r) && (r <= 1/5) ) {
-            toggleButton( document.getElementsByClassName('btn-container')[0]);
-            init();
-        } else {
-            alert( 'Пластника не є тонкою! (1/80 <= h/a <= 1/5) ' );
-        }
+    if ( a > 0 && q0 > 0 && D > 0 ) {
+        toggleButton( document.getElementsByClassName('btn-container')[0]);
+        init();
     } else {
         alert( 'Ви допустили помилку при введені вхідних параметрів!' );
     }

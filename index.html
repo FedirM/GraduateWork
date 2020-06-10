@@ -23,32 +23,16 @@
         </div>
         <div class="side-menu">
             <div class="floating-label">
-                <input placeholder="Довжина (м)" type="text" id="length" autocomplete="off" onchange="onChange_a( this.value )">
-                <label for="length">Довжина (м):</label>
+                <input placeholder="Відношення сторін (a/b)" type="text" id="length" autocomplete="off" onchange="onChange_a( this.value )">
+                <label for="length">Відношення сторін (a/b):</label>
             </div>
             <div class="floating-label">
-                <input placeholder="Ширина (м)" type="text" id="width" autocomplete="off" onchange="onChange_b( this.value )">
-                <label for="width">Ширина (м):</label>
+                <input placeholder="Цилінд. жорсткість" type="text" id="D" autocomplete="off" onchange="onChange_D( this.value )">
+                <label for="D">Цилінд. жорсткість:</label>
             </div>
             <div class="floating-label">
-                <input placeholder="Товщина (м)" type="text" id="height" autocomplete="off" onchange="onChange_h( this.value )">
-                <label for="height">Товщина (м):</label>
-            </div>
-            <div class="floating-label">
-                <input placeholder="модуль Юнга (Па)" type="text" id="ung" autocomplete="off" onchange="onChange_E( this.value )">
-                <label for="ung">модуль Юнга (Па):</label>
-            </div>
-            <div class="floating-label">
-                <input placeholder="коеф. Пуассона" type="text" id="mu" autocomplete="off" onchange="onChange_mu( this.value )">
-                <label for="mu">коеф. Пуассона:</label>
-            </div>
-            <div class="floating-label">
-                <input placeholder="Цилінд. жорсткість (Н*м)" type="text" id="D" autocomplete="off" disabled>
-                <label for="D">Цилінд. жорсткість (Н*м):</label>
-            </div>
-            <div class="floating-label">
-                <input placeholder="Максимальне навантаження (Н)" type="text" id="q0" autocomplete="off" onchange="onChange_q0( this.value )">
-                <label for="q0">Максимальне навантаження (Н):</label>
+                <input placeholder="Навантаження" type="text" id="q0" autocomplete="off" onchange="onChange_q0( this.value )">
+                <label for="q0">Навантаження:</label>
             </div>
 
             <div class="calc-btn-area">
@@ -57,7 +41,7 @@
 
         </div>
         <div class="main-area">
-            <h1>Пластинка з защемленими протилежними кінцями</h1>
+            <h1>Пластинка з защемленими протилежними краями</h1>
             <span>(під гідростатичним навантаженням вздовж осі х)</span>
             <div id="graph"></div>
         </div>
